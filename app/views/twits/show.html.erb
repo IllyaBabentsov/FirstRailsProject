@@ -7,9 +7,14 @@
 
 <p>
   <strong>User:</strong>
-  <%= @twit.user_id %>
+  <%= User.find(@twit.user_id).nickname %>
+</p>
+
+<p>
+<%= link_to 'Add Tag into your twit', new_twit_tag_path(@twit) %> |
 </p>
 
 <%= link_to 'Edit', edit_twit_path(@twit) %> |
-<%= link_to 'Show Comments', twit_comments_path(@twit) %> |
+<%= link_to 'Add Comment', new_twit_comment_path(@twit) %> |
+<%= link_to 'Show Comments', twit_comment_path(@twit) %> |
 <%= link_to 'Back', twits_path %>

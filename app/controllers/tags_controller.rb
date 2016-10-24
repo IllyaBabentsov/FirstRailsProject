@@ -14,7 +14,8 @@ class TagsController < ApplicationController
 
   # GET /tags/new
   def new
-    @tag = Tag.new
+    @twit = Twit.find(params[:twit_id])
+    @tag = @twit.tags.build
   end
 
   # GET /tags/1/edit

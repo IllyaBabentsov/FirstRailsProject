@@ -19,9 +19,13 @@
   <div class="field">
     <%= f.label :user %>
     <%= collection_select(:twit, :user_id, User.all, :id, :nickname, {}, {:multiple => false})%>
-<!--    <%= f.number_field :user_id %>  -->
   </div>
 
+<!--  <div class="field">
+    <%= f.label :tag_text %>
+    <%= collection_select(:twit, :id, Tag.all, :twit_id, :tag_text, {}, {:multiple => false})%>
+  </div>
+ --> 
   <div class="actions">
     <%= f.submit %>
   </div>

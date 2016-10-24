@@ -15,7 +15,7 @@
     <% @twits.each do |twit| %>
       <tr>
         <td><%= twit.content %></td>
-        <td><%= twit.user_id %></td>
+        <td><%= User.find(twit.user_id).nickname %></td>
         <td><%= link_to 'Show', twit %></td>
         <td><%= link_to 'Edit', edit_twit_path(twit) %></td>
         <td><%= link_to 'Destroy', twit, method: :delete, data: { confirm: 'Are you sure?' } %></td>

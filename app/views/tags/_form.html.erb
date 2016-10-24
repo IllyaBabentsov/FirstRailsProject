@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= f.label :tag_text %>
-    <%= f.text_field :tag_text %>
+    <%= collection_select(:twit, :id, Tag.all, :id, :tag_text, {}, {:multiple => false})%>
   </div>
 
   <div class="actions">

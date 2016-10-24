@@ -4,13 +4,13 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Twit.find(params[:twit_id])
-  #  @comments = Comment.where(id: "1").take
+    @comments = Comment.all
   end
 
   # GET /comments/1
   # GET /comments/1.json
   def show
+    @comments = Comment.where("twit_id = ?", params[:twit_id])
   end
 
   # GET /comments/new
@@ -18,6 +18,7 @@ class CommentsController < ApplicationController
 
     @twit = Twit.find(params[:twit_id])
     @comment = @twit.comments.build
+
   end
 
   # GET /comments/1/edit
@@ -70,7 +71,8 @@ class CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @comment = Comment.find(params[:id])
+#      @comment = Comment.find(params[:id]) 
+       @comment = Comment.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

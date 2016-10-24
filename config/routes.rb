@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'home_page/home'
+
   resources :tags
   resources :comments
-
-  get 'home_page/home'
-  
   resources :users
   resources :twits do
   	resources :comments
+  	resources :tags
   end
 
   root "home_page#home"

@@ -1,19 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Twit:</strong>
-  <%= @comment.twit_id %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @comment.user_id %>
-</p>
+<% @comments.each do |comment| %>
+        <p><%= comment.text %></p>
+        <p><%= User.find(comment.user_id).nickname %></p>
+     <% end %>
 
-<p>
-  <strong>Text:</strong>
-  <%= @comment.text %>
-</p>
-
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Back', twits_path %>
